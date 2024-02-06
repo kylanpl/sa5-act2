@@ -4,11 +4,17 @@ def check_palindrome(text):
     else:
         print(f"{text} is not a palindrome")
 
+choice = input("Enter 't' for text or 'f' for file: ")
+if choice == "t":
+    text = input("Enter text to check for palindrome: ")
+    check_palindrome(text)
+elif choice =="f":
+    try:
+        filepath = input("Enter filepath for palindrome check: ")
+        text = open(filepath, "r").read()
 
-<<<<<<< HEAD
-text = "did"
-# text = "hello"
-=======
-text = input("Enter text to check for palindrome: ")
->>>>>>> Replaced hardcoded string with user-input text string
-check_palindrome(text)
+        check_palindrome(text)
+    except OSError:
+        print(f"Unable to process file at {filepath}")
+else:
+    print("Invalid choice")
